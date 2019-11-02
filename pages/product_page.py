@@ -17,4 +17,10 @@ class ProductPage(BasePage):
         assert name_book == message_add_name_book, "добавлена не та книга"
         assert prise_book == message_add_prise_book, "стоимость не совпадает"
         
-        
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"    
+    
+    def should_is_disappeared_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is not disappeared" 
